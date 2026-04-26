@@ -1,91 +1,48 @@
-html {
-  font-family: sans-serif;
-}
+/* Digital Clock Specific Styles */
 
-body {
-  width: 300px;
-  max-width: 750px;
-  min-width: 480px;
-  margin: 0 auto;
-  background-color: #212121;
-}
-
-.lastResult {
-  color: white;
-  padding: 7px;
-}
-
-.guesses {
-  color: white;
-  padding: 7px;
-}
-
-button {
-  background-color: #141414;
-  color: #fff;
-  width: 250px;
-  height: 50px;
-  border-radius: 25px;
-  font-size: 30px;
-  border-style: none;
-  margin-top: 30px;
-  /* margin-left: 50px; */
-}
-
-#subt {
-  background-color: #161616;
-  color: #ffffff;
-  width: 200px;
-  height: 50px;
-  border-radius: 10px;
-  font-size: 20px;
-  border-style: none;
-  margin-top: 50px;
-  /* margin-left: 75px; */
-}
-
-#guessField {
-  color: #000;
-  width: 250px;
-  height: 50px;
-  font-size: 30px;
-  border-style: none;
-  margin-top: 25px;
-
-  /* margin-left: 50px; */
-  border: 5px solid #6c6d6d;
+.clock-card {
   text-align: center;
+  max-width: 500px;
+  padding: 3rem 2rem;
+  background: linear-gradient(145deg, var(--card-bg), #111827);
+  position: relative;
+  overflow: hidden;
 }
 
-#guess {
-  font-size: 55px;
-  /* margin-left: 90px; */
-  margin-top: 120px;
-  color: #fff;
+/* Subtle glowing accent on the card */
+.clock-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 60%);
+  pointer-events: none;
 }
 
-.guesses {
-  background-color: #7a7a7a;
+.clock-container {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: rgba(15, 23, 42, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+  display: inline-block;
 }
 
-#wrapper {
-  box-sizing: border-box;
-  text-align: center;
-  width: 450px;
-  height: 550px;
-  background-color: #474747;
-  color: #fff;
-  font-size: 25px;
+#clock {
+  font-family: 'Courier New', Courier, monospace; /* Digital look */
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #38bdf8; /* Vibrant light blue */
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.5), 0 0 20px rgba(56, 189, 248, 0.3);
+  margin: 0;
 }
 
-h1 {
-  background-color: #161616;
-
-  color: #fff;
-  text-align: center;
-}
-
-p {
-  font-size: 16px;
-  text-align: center;
+@media (max-width: 480px) {
+  #clock {
+    font-size: 2.2rem;
+  }
 }

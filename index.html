@@ -4,10 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Number Guessing Game</title>
-    <link rel="stylesheet" href="style.css">
+    <title>JavaScript Mini Projects</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        width: 100%;
+        max-width: 900px;
+        margin-top: 2rem;
+      }
+      .project-card {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: var(--text-color);
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--primary-color);
+      }
+      .project-card h2 {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+      .project-icon {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+    </style>
 </head>
-<body style="background-color:#212121; color:#fff;">
+<body>
   <nav>
     <a href="./index.html" aria-current="page">Home</a>
     <a href="./projects-html/color-changer.html">Color Changer</a>
@@ -15,9 +54,31 @@
     <a href="./projects-html/digital-clock.html">Digital Clock</a>
   </nav>    
   
-    <div id="wrapper">
-      <h1>JavaScript Projects</h1>
+  <main class="main-content">
+    <h1>JavaScript Projects</h1>
+    <p style="color: #94a3b8; text-align: center; max-width: 600px;">
+      A collection of basic JavaScript projects including a Color Changer, BMI Calculator, and a Digital Clock. Built to practice DOM manipulation and basic JS logic.
+    </p>
+
+    <div class="projects-grid">
+      <a href="./projects-html/color-changer.html" class="project-card">
+        <div class="project-icon">🎨</div>
+        <h2>Color Changer</h2>
+        <p style="color: #94a3b8; font-size: 0.9rem;">Change the background color with a click.</p>
+      </a>
+      
+      <a href="./projects-html/bmi-calculator.html" class="project-card">
+        <div class="project-icon">⚖️</div>
+        <h2>BMI Calculator</h2>
+        <p style="color: #94a3b8; font-size: 0.9rem;">Calculate Body Mass Index based on height & weight.</p>
+      </a>
+
+      <a href="./projects-html/digital-clock.html" class="project-card">
+        <div class="project-icon">⏰</div>
+        <h2>Digital Clock</h2>
+        <p style="color: #94a3b8; font-size: 0.9rem;">A real-time digital clock displaying local time.</p>
+      </a>
     </div>
-    <script src="chaiaurcode.js"></script>
+  </main>
 </body>
 </html>

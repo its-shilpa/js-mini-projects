@@ -1,46 +1,84 @@
-.container {
-  width: 575px;
-  height: 825px;
+/* BMI Calculator Specific Styles */
 
-  background-color: #797978;
-  padding-left: 30px;
-}
-#height,
-#weight {
-  width: 150px;
-  height: 25px;
-  margin-top: 30px;
+.bmi-card {
+  max-width: 400px;
 }
 
-#weight-guide {
-  margin-left: 75px;
-  margin-top: 25px;
+.input-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
 }
 
-#results {
-  font-size: 35px;
-  margin-left: 90px;
-  margin-top: 20px;
-  color: rgb(241, 241, 241);
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
 }
 
-button {
-  width: 150px;
-  height: 35px;
-  margin-left: 90px;
-  margin-top: 25px;
-  background-color: #fff;
-  padding: 1px 30px;
+.input-group input {
+  margin-bottom: 0;
+}
+
+.results-box {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
   border-radius: 8px;
-  color: #212121;
-  text-decoration: none;
-  border: 2px solid #212121;
-
-  font-size: 25px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  display: none; /* Hidden by default until JS populates it */
 }
 
-h1 {
-  padding-left: 15px;
-  padding-top: 25px;
-  
+/* We override display block if JS sets innerHTML */
+.results-box:not(:empty) {
+  display: block;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+#message {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.guide-box {
+  margin-top: 2rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.guide-box h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--accent-color);
+}
+
+.guide-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guide-box li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--border-color);
+  font-size: 0.9rem;
+}
+
+.guide-box li:last-child {
+  border-bottom: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
