@@ -5,4 +5,4 @@
 - More coming soon...
 
 ## Live Demo
-https://yourusername.github.io/js-mini-projects/
+https://its-shilpa.github.io/js-mini-projects/
