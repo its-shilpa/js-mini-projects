@@ -7,6 +7,9 @@ const clock = document.getElementById('clock');
   //clock.innerHTML = date.toLocaleTimeString();
 //}, 1000);
 
+
+
+
 //using arrow function
 setInterval(() => {
   let date = new Date();
