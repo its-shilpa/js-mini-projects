@@ -18,6 +18,8 @@ const remaining = document.querySelector('.lastResult');
 const lowOrHi = document.querySelector('.lowOrHi');
 const startOver = document.querySelector('.resultParas');
 
+submit.disabled = true;
+
 let randomNumber;
 let prevGuess = [];
 let numGuess = 1;
@@ -33,6 +35,7 @@ difficultySelect.addEventListener('change', function () {
   min = currentLevel.min;
   max = currentLevel.max;
   maxAttempts = currentLevel.attempts;
+  timeLeft = currentLevel.time;
 
   startNewGame(); 
 });
@@ -44,10 +47,71 @@ if (playGame) {
   submit.addEventListener('click', function (e) {
     e.preventDefault();
     if (!playGame) return;
-    const guess = parseInt(userInput.value);
+    const raw = userInput.value.trim();
+    if (raw === '') {
+    displayMessage('Enter a number first');
+    return;
+    }
+
+    const guess = Number(raw);
+
+    if (!Number.isInteger(guess)) {
+    displayMessage('Please enter a whole number');
+    return;
+    }
     console.log(guess);
     validateGuess(guess);
   });
+}
+
+userInput.addEventListener('input', () => {
+    userInput.value = userInput.value.replace(/[^\d]/g, '');
+
+    // clamp to range if user pastes large values
+    if (userInput.value !== '') {
+        let val = Number(userInput.value);
+        if (val < min) val = min;
+        if (val > max) val = max;
+        userInput.value = val;
+    }
+    submit.disabled = userInput.value.trim() === '';
+    });
+
+function setVisualState(type) {
+  userInput.classList.remove(
+    'input-default',
+    'input-correct',
+    'input-wrong',
+    'input-close'
+  );
+
+  lowOrHi.classList.remove(
+    'msg-default',
+    'msg-correct',
+    'msg-wrong',
+    'msg-close'
+  );
+
+  switch (type) {
+    case 'correct':
+      userInput.classList.add('input-correct');
+      lowOrHi.classList.add('msg-correct');
+      break;
+
+    case 'close':
+      userInput.classList.add('input-close');
+      lowOrHi.classList.add('msg-close');
+      break;
+
+    case 'wrong':
+      userInput.classList.add('input-wrong');
+      lowOrHi.classList.add('msg-wrong');
+      break;
+
+    default:
+      userInput.classList.add('input-default');
+      lowOrHi.classList.add('msg-default');
+  }
 }
 
 function startNewGame() {
@@ -58,6 +122,11 @@ function startNewGame() {
   remaining.innerHTML = `${maxAttempts}`;
   userInput.removeAttribute('disabled');
   lowOrHi.innerHTML = '';
+
+  userInput.min = min;
+  userInput.max = max;
+  submit.disabled = true;
+  setVisualState('default');
 
    document.querySelector('#rangeText').innerText =
     `Try and guess a random number between ${min} and ${max}.`;
@@ -84,20 +153,24 @@ function startTimer() {
 }
 
 function validateGuess(guess) {
-  if (isNaN(guess)) {
-    alert('Please enter a valid number');
-  } else if (guess < min) {
-    alert(`Please enter a number >= ${min}`);
-  } else if (guess > max) {
-    alert(`Please enter a number <= ${max}`);
-  } else if (prevGuess.includes(guess)) {
-    alert('You already guessed this number');
-  } else {
+    if (guess < min) {
+        displayMessage(`Enter a number ≥ ${min}`);
+    return;
+}
+    else if (guess > max) {
+        displayMessage(`Enter a number ≤ ${max}`);
+    return;
+    }
+    else if (prevGuess.includes(guess)) {
+        displayMessage('You already guessed this number');
+    return;
+    } else {
     prevGuess.push(guess);
 
     if (guess === randomNumber) {
     displayGuess(guess);
     displayMessage(`You guessed it right`);
+    setVisualState('correct');
     endGame();
     } else if (numGuess === maxAttempts) {
     displayGuess(guess);
@@ -111,10 +184,30 @@ function validateGuess(guess) {
 }
 
 function checkGuess(guess) {
+  const diff = Math.abs(guess - randomNumber);
+
   if (guess < randomNumber) {
-    displayMessage(`Number is TOOO low`);
-  } else if (guess > randomNumber) {
-    displayMessage(`Number is TOOO High`);
+    if (diff <= 2) {
+      displayMessage(`🔥 Very close! Just a bit LOW`);
+      setVisualState('close');
+    } else if (diff <= 5) {
+      displayMessage(`👍 Close! But still LOW`);
+      setVisualState('close');
+    } else {
+      displayMessage(`❄️ Too LOW`);
+      setVisualState('wrong');
+    }
+  } else {
+    if (diff <= 2) {
+      displayMessage(`🔥 Very close! Just a bit HIGH`);
+      setVisualState('close');
+    } else if (diff <= 5) {
+      displayMessage(`👍 Close! But still HIGH`);
+      setVisualState('close');
+    } else {
+      displayMessage(`❄️ Too HIGH`);
+      setVisualState('wrong');
+    }
   }
 }
 

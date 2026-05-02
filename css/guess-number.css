@@ -89,3 +89,29 @@ p {
   font-size: 16px;
   text-align: center;
 }
+
+/* input states */
+.input-default {
+  border: 2px solid #ccc;
+}
+
+.input-correct {
+  border: 2px solid #22c55e;
+}
+
+.input-wrong {
+  border: 2px solid #ef4444;
+}
+
+.input-close {
+  border: 2px solid #f59e0b;
+}
+input {
+  transition: all 0.3s ease;
+}
+
+/* message colors */
+.msg-correct { color: #22c55e; }
+.msg-wrong { color: #ef4444; }
+.msg-close { color: #f59e0b; }
+.msg-default { color: #fff; }
