@@ -1,13 +1,15 @@
 const levels = {
-  easy: { min: 1, max: 10, attempts: 5 },
-  medium: { min: 1, max: 20, attempts: 10 },
-  hard: { min: 1, max: 50, attempts: 15 }
+  easy: { min: 1, max: 10, attempts: 5, time: 20 },
+  medium: { min: 1, max: 20, attempts: 10, time: 30 },
+  hard: { min: 1, max: 50, attempts: 15, time: 45 }
 };
 
 let currentLevel = levels.medium;
 let min = currentLevel.min;
 let max = currentLevel.max;
 let maxAttempts = currentLevel.attempts;
+let timeLeft = currentLevel.time;
+let timerId = null;
 
 const submit = document.querySelector('#subt');
 const userInput = document.querySelector('#guessField');
@@ -59,6 +61,26 @@ function startNewGame() {
 
    document.querySelector('#rangeText').innerText =
     `Try and guess a random number between ${min} and ${max}.`;
+
+    startTimer();
+}
+
+function startTimer() {
+  clearInterval(timerId); 
+
+  timeLeft = currentLevel.time;
+  document.querySelector('#timer').innerText = timeLeft;
+
+  timerId = setInterval(() => {
+    timeLeft--;
+    document.querySelector('#timer').innerText = timeLeft;
+
+    if (timeLeft <= 0) {
+      clearInterval(timerId);
+      displayMessage(`⏰ Time's up! Number was ${randomNumber}`);
+      endGame();
+    }
+  }, 1000);
 }
 
 function validateGuess(guess) {
@@ -108,6 +130,7 @@ function displayMessage(message) {
 }
 
 function endGame() {
+    clearInterval(timerId);
   userInput.value = '';
   userInput.setAttribute('disabled', '');
   p.classList.add('button');
