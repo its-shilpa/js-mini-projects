@@ -19,9 +19,17 @@
     
     <div id="wrapper">
       <h1>Number guessing game</h1>
-    <p>Try and guess a random number between 1 and 20.</p>
+    <p id="rangeText">Try and guess a random number between 1 and 20.</p>
     <p>You have 10 attempts to guess the right number.</p>
     </br>
+    <div class="difficulty">
+        <label>Select Difficulty: </label>
+        <select id="difficulty">
+            <option value="easy">Easy (1–10, 5 attempts)</option>
+            <option value="medium" selected>Medium (1–20, 10 attempts)</option>
+            <option value="hard">Hard (1–50, 15 attempts)</option>
+        </select>
+    </div>
         <form class="form">
             <label2 for="guessField" id="guess">Guess a number</label>
             <input type="text" id="guessField" class="guessField">
