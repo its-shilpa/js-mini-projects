@@ -26,6 +26,22 @@ let numGuess = 1;
 
 const p = document.createElement('p');
 
+const sounds = {
+  click: new Audio('../sounds/click.mp3'),
+  win: new Audio('../sounds/win.mp3'),
+  wrong: new Audio('../sounds/wrong.mp3'),
+  close: new Audio('../sounds/close.mp3'),
+  timeout: new Audio('../sounds/timeout.mp3')
+};
+
+function playSound(type) {
+  const sound = sounds[type];
+  if (!sound) return;
+
+  sound.currentTime = 0; 
+  sound.play().catch(() => {});
+}
+
 const difficultySelect = document.querySelector('#difficulty');
 
 difficultySelect.addEventListener('change', function () {
@@ -47,6 +63,7 @@ if (playGame) {
   submit.addEventListener('click', function (e) {
     e.preventDefault();
     if (!playGame) return;
+    playSound('click');
     const raw = userInput.value.trim();
     if (raw === '') {
     displayMessage('Enter a number first');
@@ -147,6 +164,7 @@ function startTimer() {
     if (timeLeft <= 0) {
       clearInterval(timerId);
       displayMessage(`⏰ Time's up! Number was ${randomNumber}`);
+      playSound('timeout');
       endGame();
     }
   }, 1000);
@@ -171,10 +189,12 @@ function validateGuess(guess) {
     displayGuess(guess);
     displayMessage(`You guessed it right`);
     setVisualState('correct');
+    playSound('win');
     endGame();
     } else if (numGuess === maxAttempts) {
     displayGuess(guess);
     displayMessage(`Game Over. Random number was ${randomNumber}`);
+    playSound('wrong');
     endGame();
     } else {
     displayGuess(guess);
@@ -190,23 +210,29 @@ function checkGuess(guess) {
     if (diff <= 2) {
       displayMessage(`🔥 Very close! Just a bit LOW`);
       setVisualState('close');
+      playSound('close');
     } else if (diff <= 5) {
       displayMessage(`👍 Close! But still LOW`);
       setVisualState('close');
+      playSound('close');
     } else {
       displayMessage(`❄️ Too LOW`);
       setVisualState('wrong');
+      playSound('wrong');
     }
   } else {
     if (diff <= 2) {
       displayMessage(`🔥 Very close! Just a bit HIGH`);
       setVisualState('close');
+      playSound('close');
     } else if (diff <= 5) {
       displayMessage(`👍 Close! But still HIGH`);
       setVisualState('close');
+      playSound('close');
     } else {
       displayMessage(`❄️ Too HIGH`);
       setVisualState('wrong');
+      playSound('wrong');
     }
   }
 }
