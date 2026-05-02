@@ -28,15 +28,18 @@ if (playGame) {
 
 function validateGuess(guess) {
   if (isNaN(guess)) {
-    alert('PLease enter a valid number');
-  } else if (guess < 1) {
-    alert('PLease enter a number more than 1');
-  } else if (guess > 20) {
-    alert('PLease enter a  number less than 20');
+    alert('Please enter a valid number');
+  } else if (guess < min) {
+    alert(`Please enter a number >= ${min}`);
+  } else if (guess > max) {
+    alert(`Please enter a number <= ${max}`);
+  } else if (prevGuess.includes(guess)) {
+    alert('You already guessed this number');
   } else {
     prevGuess.push(guess);
-    if (numGuess > 10) {
-      displayGuess(guess);
+
+    if (numGuess === 10) {
+      displayGuess(guess); 
       displayMessage(`Game Over. Random number was ${randomNumber}`);
       endGame();
     } else {
