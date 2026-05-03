@@ -147,6 +147,8 @@ function startNewGame() {
 
    document.querySelector('#rangeText').innerText =
     `Try and guess a random number between ${min} and ${max}.`;
+   document.querySelector('#attemptsText').innerText =
+    `You have ${maxAttempts} attempts to guess the right number.`;
 
     startTimer();
 }
