@@ -59,8 +59,10 @@ difficultySelect.addEventListener('change', function () {
 
 let playGame = true;
 
+const form = document.querySelector('.form');
+
 if (playGame) {
-  submit.addEventListener('click', function (e) {
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!playGame) return;
     playSound('click');
@@ -132,6 +134,10 @@ function setVisualState(type) {
 }
 
 function startNewGame() {
+  playGame = true;
+  if (startOver.contains(p)) {
+    startOver.removeChild(p);
+  }
   randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
   prevGuess = [];
   numGuess = 1;
@@ -265,8 +271,6 @@ function newGame() {
   const newGameButton = document.querySelector('#newGame');
   newGameButton.onclick = function (e) {
     startNewGame();
-    startOver.removeChild(p);
-    playGame = true;
   };
 }
 
