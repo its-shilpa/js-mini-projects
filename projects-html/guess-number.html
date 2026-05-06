@@ -13,7 +13,7 @@
       <a href="../index.html">Home</a>
       <a href="../projects-html/color-changer.html">Color Changer</a>
       <a href="../projects-html/bmi-calculator.html">BMI Calculator</a>
-      <a href="../projects-html/digital-clock.html">Digital Clock</a>
+      <!-- <a href="../projects-html/digital-clock.html">Digital Clock</a> -->
       <a href="../projects-html/guess-number.html" aria-current="page">Number Guessing Game</a>
     </nav>
   <main class="main-content">
@@ -21,31 +21,36 @@
       <h1>Number Guessing Game</h1>
       <p id="rangeText">Try and guess a random number between 1 and 20.</p>
       <p id="attemptsText">You have 10 attempts to guess the right number.</p>
-      <br>
 
-    <div class="difficulty input-group">
-        <label for="difficulty">Select Difficulty: </label>
-        <select id="difficulty" class="input-select">
-            <option value="easy">Easy (1–10, 5 attempts)</option>
-            <option value="medium" selected>Medium (1–20, 10 attempts)</option>
-            <option value="hard">Hard (1–50, 15 attempts)</option>
-        </select>
-    </div>
-    <p class="timer-text">Time Left: <span id="timer">30</span>s</p>
-    
-    <form class="form">
-        <div class="input-group">
-            <label for="guessField" id="guess">Guess a number</label>
-            <input type="number" id="guessField" class="guessField" min="1" max="50" step="1" inputmode="numeric" required>
+      <div class="game-controls">
+        <div class="difficulty input-group">
+            <label for="difficulty">Select Difficulty: </label>
+            <select id="difficulty" class="input-select">
+                <option value="easy">Easy (1–10, 5 attempts)</option>
+                <option value="medium" selected>Medium (1–20, 10 attempts)</option>
+                <option value="hard">Hard (1–50, 15 attempts)</option>
+            </select>
         </div>
-        <input type="submit" id="subt" value="Submit Guess" class="btn guessSubmit">
-    </form>
+        <div class="timer-container">
+            <p class="timer-text">Time Left: <span id="timer">30</span>s</p>
+        </div>
+      </div>
+      
+      <form class="form">
+          <div class="input-group">
+              <label for="guessField" id="guess">Guess a number</label>
+              <input type="number" id="guessField" class="guessField" min="1" max="50" step="1" inputmode="numeric" required>
+          </div>
+          <input type="submit" id="subt" value="Submit Guess" class="btn guessSubmit">
+      </form>
 
-        <div class="resultParas">
-            <p>Previous Guesses: <span class="guesses"></span></p>
-            <p>Guesses Remaining: <span class="lastResult">10</span></p>
-            <p class="lowOrHi"></p>
-        </div>
+      <div class="resultParas">
+          <div class="stats-row">
+              <p>Previous: <span class="guesses"></span></p>
+              <p>Remaining: <span class="lastResult">10</span></p>
+          </div>
+          <p class="lowOrHi"></p>
+      </div>
     </div>
   </main>
   <script src="../js/guess-number.js"></script>
