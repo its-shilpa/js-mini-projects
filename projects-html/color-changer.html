@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/color-changer.css" />
+    <link rel="stylesheet" href="../css/digital-clock.css" />
     <title>JavaScript Background Color Switcher</title>
   </head>
   <body>
@@ -18,21 +19,32 @@
     </nav>
   
     <main class="main-content">
-      <div class="card canvas">
-        <h1>Color Scheme Switcher</h1>
-        <div class="color-palette">
-          <span class="button" id="grey" title="Grey"></span>
-          <span class="button" id="white" title="White"></span>
-          <span class="button" id="blue" title="Blue"></span>
-          <span class="button" id="yellow" title="Yellow"></span>
-          <span class="button" id="purple" title="Purple"></span>
+      <div class="main-div">
+        <div class="card clock-card">
+          <div id="banner">
+            <h1>Current Local Time</h1>
+          </div>
+          <div class="clock-container">
+            <div id="clock">Loading...</div>
+          </div>
         </div>
-        <div class="instructions">
-          <h2>Try clicking on one of the colors above</h2>
-          <p>to change the background color of this page!</p>
+        <div class="card canvas">
+          <h1>Color Scheme Switcher</h1>
+          <div class="color-palette">
+            <span class="button" id="grey" title="Grey"></span>
+            <span class="button" id="white" title="White"></span>
+            <span class="button" id="blue" title="Blue"></span>
+            <span class="button" id="yellow" title="Yellow"></span>
+            <span class="button" id="purple" title="Purple"></span>
+          </div>
+          <div class="instructions">
+            <h2>Try clicking on one of the colors above</h2>
+            <p>to change the background color of this page!</p>
+          </div>
         </div>
       </div>
     </main>
     <script src="../js/color-changer.js"></script>
+    <script src="../js/digital-clock.js"></script>
   </body>
 </html>
