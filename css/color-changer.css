@@ -1,8 +1,26 @@
 /* Color Changer Specific Styles */
 
+.main-div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
+  align-items: stretch;
+}
+
+@media (min-width: 860px) {
+  .main-div {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .canvas {
   text-align: center;
-  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 .color-palette {
@@ -18,66 +36,57 @@
   height: 60px;
   border-radius: 50%;
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-  box-shadow: var(--shadow-sm);
-  border: 3px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  top: -3px; left: -3px; right: -3px; bottom: -3px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
 }
 
 .button:hover {
-  transform: scale(1.15);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.15) translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.button:hover::after {
+  top: -8px; left: -8px; right: -8px; bottom: -8px;
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .button:active {
   transform: scale(0.95);
 }
 
-#grey {
-  background-color: #64748b;
-}
-
-#white {
-  background-color: #f8fafc;
-  border-color: #cbd5e1;
-}
-
-#blue {
-  background-color: #3b82f6;
-}
-
-#yellow {
-  background-color: #eab308;
-}
-
-#purple {
-  background-color: #a855f7;
-}
+#grey { background: linear-gradient(135deg, #475569, #1e293b); }
+#white { background: linear-gradient(135deg, #f8fafc, #94a3b8); border-color: rgba(255,255,255,0.6); }
+#blue { background: linear-gradient(135deg, #3b82f6, #1e3a8a); }
+#yellow { background: linear-gradient(135deg, #f59e0b, #78350f); }
+#purple { background: linear-gradient(135deg, #a855f7, #4c1d95); }
 
 .instructions {
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px dashed var(--border-color);
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
 .instructions h2 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #e2e8f0, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .instructions p {
   color: #94a3b8;
-  font-size: 0.95rem;
-}
-
-/* Transition for the body background color when changed via JS */
-body {
-  transition: background-color 0.5s ease;
-}
-
-.main-div{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  font-size: 1rem;
 }

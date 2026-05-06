@@ -23,10 +23,12 @@
 body {
   font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   color: var(--text-color);
-  background-color: var(--bg-color);
+  background: linear-gradient(135deg, #0f172a, #1e1b4b);
+  background-attachment: fixed;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: background 0.8s ease;
 }
 
 /* Navigation */
@@ -37,10 +39,10 @@ nav {
   justify-content: center;
   padding: 1rem;
   gap: 1rem;
-  background-color: var(--nav-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-color);
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -49,30 +51,31 @@ nav {
 nav a {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  border-radius: 8px;
+  border-radius: 12px;
   text-align: center;
   text-decoration: none;
   color: var(--text-color);
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid transparent;
 }
 
 nav a:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-color: var(--border-color);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
 }
 
 nav a[aria-current='page'], nav a.active {
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
   color: white;
-  box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+  border: none;
 }
 
 nav a[aria-current='page']:hover, nav a.active:hover {
-  background-color: #2563eb;
   transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
 }
 
 /* Main Content Wrapper */
@@ -82,7 +85,7 @@ nav a[aria-current='page']:hover, nav a.active:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 3rem 2rem;
   width: 100%;
 }
 
@@ -91,10 +94,11 @@ h1 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
   text-align: center;
-  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+  background: linear-gradient(135deg, #60a5fa, #c084fc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 h2, h3 {
@@ -104,14 +108,28 @@ h2, h3 {
 
 /* Card Style for Projects */
 .card {
-  background-color: var(--card-bg);
-  border-radius: 16px;
-  padding: 2.5rem;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border-color);
+  background-color: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
 }
 
 /* General Input Styles */
