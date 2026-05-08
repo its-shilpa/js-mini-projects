@@ -49,6 +49,10 @@ buttons.forEach(function (btn) {
         body.style.background = 'linear-gradient(135deg, #4c1d95, #2e1065)';
         break;
 
+      case 'Orange':
+        body.style.background = 'linear-gradient(135deg, #f97316, #ea580c)';
+        break;
+
       default:
         console.log('Default color: ', color);
     }
