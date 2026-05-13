@@ -2,7 +2,8 @@
 
 - Color Changer
 - Number Guessing Game
-- More coming soon...
+- Calculate Body Mass
+- Digital timer
 
 ## Live Demo
 https://its-shilpa.github.io/js-mini-projects/
