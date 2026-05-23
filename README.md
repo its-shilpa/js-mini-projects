@@ -2,7 +2,7 @@
 
 - Color Changer
 - Number Guessing Game
-- Calculate Body Mass
+- Calculate Body Mass project 
 - Digital timer project
   rest coming soon 
 
