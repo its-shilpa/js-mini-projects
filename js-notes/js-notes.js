@@ -127,3 +127,7 @@ obj1.__proto__.fname = "Aahi";
 console.log(protoTypeObj.fname);
 //Output:
 // Aahi
+
+
+// 5. Promises in javascript -------------------------------------------------------
+//[ A promise is an object that represents the eventual completion or failure of an asynchronous operation and its resulting value. ]
