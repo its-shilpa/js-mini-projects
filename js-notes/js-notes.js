@@ -1,6 +1,6 @@
 //------------------------ javaScript Notes --------------------------
 
-//1. Hosting
+//1. Hosting ------------------------------------------
 
 // Hosting can happen both fot the var, let and const
 //Example of var:
@@ -21,7 +21,7 @@ console.log(`Value is: ${x}`)
 //Output: It will give some errors
 
 
-//2. Task Queue
+//2. Task Queue -----------------------------------------------------------
 
 // There are two types of Queue:
 
@@ -50,7 +50,11 @@ console.log("I am forth text");
 //I am second text
 
 
-//3. Objects in JavaScript
+//3. Objects in JavaScript----------------------------------------
+
+// [ Before ES6 we can create objects unsing object literals and constructor function.
+// After ES6 we can create objects using class as well. 
+// Before we use the constructor function because we do no have the concept of class in javascript, but after ES6 we can use class concept to create objects.]
 
 // Object Literals -->
 
@@ -64,3 +68,34 @@ const myObj = {
 }
 console.log(myObj.name);
 console.log(myObj.getDist);
+
+// Class based object creation -->
+
+//Example:
+
+class Person {
+    constructor(fname, lname, contact) {
+        this.fname = fname;
+        this.lname = lname;
+        this.contact = contact;
+    }
+
+    getName() {
+        console.log(`My name is ${this.fname} ${this.lname}`);
+    }
+
+    getContact() {
+        console.log(`My contact number is ${this.contact}`);
+    }
+}
+
+const person1 = new Person("Shilpa", "Mukherjee", 1234567894);
+const person2 = new Person("Aahi", "Mukherjee", 7777777777);
+console.log(person1.fname);
+console.log(person1.getContact());
+console.log(person2.getName());
+
+//Output:
+// Shilpa
+// My contact number is 1234567894
+// My name is Aahi Mukherjee
