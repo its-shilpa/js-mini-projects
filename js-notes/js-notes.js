@@ -99,3 +99,31 @@ console.log(person2.getName());
 // Shilpa
 // My contact number is 1234567894
 // My name is Aahi Mukherjee
+
+
+// 4. Prototypes and Inheritance in javaScript -------------------------------------------------------
+
+// [ Prototypes are the mechanism by which javaScript objects inherit features from one to another. Every javaScript object has a prototype property which is a reference to another object. ]
+
+// prototype → Property of a function that will be shared by objects created with new.
+// __proto__ → Property of an object that points to its parent prototype for inheritance.
+instance.__proto__ === Constructor.prototype
+
+// Example
+const protoTypeObj = {
+    fname: "Shilpa",
+    lname: "Mukherjee",
+    getFullName() {
+        return `${this.fname} ${this.lname}`;
+    },
+};
+
+const obj1 = Object.create(protoTypeObj);
+console.log(obj1.getFullName());
+//Output:
+// Shilpa Mukherjee
+
+obj1.__proto__.fname = "Aahi";
+console.log(protoTypeObj.fname);
+//Output:
+// Aahi
