@@ -303,6 +303,7 @@ promise
 //Operation successful!
 
 
+
 //7. Difference between var, let and const
 
 //1. Scope (Where they exist)
