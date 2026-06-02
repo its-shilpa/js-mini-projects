@@ -1,5 +1,9 @@
 //------------------------ javaScript Notes --------------------------
 
+//1. Scopes in javaScript ------------------------------------------
+// [Scope is the current context of execution in which values and expressions are visible or can be referenced.
+// There are three types of scopes in javascript: Global Scope, Function Scope and Block Scope.]
+
 //1. Hosting ------------------------------------------
 
 // Hosting can happen both fot the var, let and const
