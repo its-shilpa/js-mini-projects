@@ -234,5 +234,33 @@ duck.makeSound();
 //Quack!
 
 
-// 5. Promises in javascript -------------------------------------------------------
+// 6. Promises in javascript -------------------------------------------------------
 //[ A promise is an object that represents the eventual completion or failure of an asynchronous operation and its resulting value. ]
+
+//Promise States:
+//A Promise can be in one of three states:
+//Pending - operation is still running.
+//Fulfilled - operation completed successfully.
+//Rejected - operation failed.
+
+//Example:
+const promise = new Promise((resolve, reject) => {
+    const success = true;
+
+    if (success) {
+        resolve("Operation successful!");
+    } else {
+        reject("Operation failed!");
+    }
+});
+
+promise
+    .then(result => {
+        console.log(result);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+
+//Output:
+//Operation successful!
