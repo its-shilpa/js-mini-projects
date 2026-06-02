@@ -130,5 +130,105 @@ console.log(protoTypeObj.fname);
 // Aahi
 
 
+// 5. 4 Pillars of JavaScript ----------------------------------------------------
+
+// 1. Encapsulation:
+// Encapsulation bundles data (properties) and methods (functions) together into a single object, while restricting direct access to the internal state. This prevents external code from accidentally corrupting data. 
+// JavaScript uses the # prefix inside ES6 classes to declare strict private fields.
+
+// Example:
+class BankAccount {
+  #balance = 0;
+  deposit(amount) {
+    if (amount > 0) this.#balance += amount;
+  }
+  getBalance() {
+    return this.#balance;
+  }
+}
+const account = new BankAccount();
+account.deposit(1000);
+account.deposit(500);
+
+// Check balance
+console.log(account.getBalance()); 
+
+//Output: 1500
+
+//2. Abstraction:
+//Abstraction hides complex internal implementation details and only exposes essential functionalities to the user. It simplifies interface design so developers do not need to understand how a process runs under the hood.
+//Complex validation, data processing, and APIs are stashed away inside public methods.
+
+//Example:
+class CoffeeMachine {
+  #boilWater() { return "Boiling..."; } // Hidden complexity
+  #brewCoffee() { return "Brewing..."; } // Hidden complexity
+  start() {
+    this.#boilWater();
+    this.#brewCoffee();
+    return "Coffee is ready!"; // Simple interface
+  }
+}
+// Create a coffee machine
+const machine = new CoffeeMachine();
+// Start it
+console.log(machine.start());
+
+//Output: Coffee is ready!
+
+// 3. Inheritance:
+// Inheritance allows a new class (child) to adopt properties and methods from an existing class (parent). This promotes code reusability and eliminates redundant logic.
+// JavaScript uses the extends keyword to establish a parent-child relationship between classes, calling super() to initialize the parent.
+
+//Example:
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+    eat() {
+        console.log(`${this.name} is eating.`);
+    }
+}
+
+class Dog extends Animal {  // Inherits from Animal
+    bark() {
+        console.log("Woof!!");
+    }
+}
+// Create a Dog object
+const dog = new Dog("Tom");
+dog.eat();
+dog.bark();
+
+//Output:
+//Tom is eating
+//Woof!!
+
+// 4. Polymorphism:
+// Polymorphism (meaning "many forms") allows different classes to respond to the exact same method call in their own unique way.
+// A child class provides its own tailored version of a method that already exists in the parent class, known as method overriding.
+
+//Example:
+class Bird {
+    makeSound() {
+        console.log("Chirp!");
+    }
+}
+class Duck extends Bird {
+    makeSound(){
+        console.log("Quack!");
+    }
+}
+const bird = new Bird();
+const duck = new Duck();
+
+bird.makeSound();
+duck.makeSound();
+
+//Output:
+//Chirp!
+//Quack!
+
+
 // 5. Promises in javascript -------------------------------------------------------
 //[ A promise is an object that represents the eventual completion or failure of an asynchronous operation and its resulting value. ]
