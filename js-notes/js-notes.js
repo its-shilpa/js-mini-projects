@@ -1,9 +1,5 @@
 //------------------------ javaScript Notes --------------------------
 
-//1. Scopes in javaScript ------------------------------------------
-// [Scope is the current context of execution in which values and expressions are visible or can be referenced.
-// There are three types of scopes in javascript: Global Scope, Function Scope and Block Scope.]
-
 //1. Hosting ------------------------------------------
 
 // Hosting can happen both fot the var, let and const
@@ -60,7 +56,7 @@ console.log("I am forth text");
 // After ES6 we can create objects using class as well. 
 // Before we use the constructor function because we do no have the concept of class in javascript, but after ES6 we can use class concept to create objects.]
 
-// Object Literals -->
+// Object Literals ----------->
 
 //Example:
 const myObj = {
@@ -73,7 +69,48 @@ const myObj = {
 console.log(myObj.name);
 console.log(myObj.getDist);
 
-// Class based object creation -->
+// Constructor Functions ----------------->[If the function name is starting with Uppercase, it is a Constructor Function]
+
+//Example:
+function MyObj(fname, lname, contact) {
+    this.fname = fname;
+    this.lname = lname;
+    this.contact = contact;
+
+    this.getName = function() {
+        console.log(this.fname, this.lname);
+    };
+}
+
+const person1 = new MyObj("Shilpa","Mukherjee","9999999999");
+const person2 = new MyObj("Aahi","Mukherjee","888888888");
+const person3 = new MyObj("Rahi","Roy","77777777");
+console.log(person1);
+console.log(person2);
+
+person3.getName();
+
+// Output:
+//person1
+// MyObj {
+//   fname: 'Shilpa',
+//   lname: 'Mukherjee',
+//   contact: '9999999999',
+//   getName: [Function (anonymous)]
+// }
+
+//person2
+// MyObj {
+//   fname: 'Aahi',
+//   lname: 'Mukherjee',
+//   contact: '888888888',
+//   getName: [Function (anonymous)]
+// }
+
+//person3
+//Rahi Roy
+
+// Class based object creation --------------------------->
 
 //Example:
 
@@ -111,7 +148,6 @@ console.log(person2.getName());
 
 // prototype → Property of a function that will be shared by objects created with new.
 // __proto__ → Property of an object that points to its parent prototype for inheritance.
-
 instance.__proto__ === Constructor.prototype
 
 // Example
@@ -132,6 +168,7 @@ obj1.__proto__.fname = "Aahi";
 console.log(protoTypeObj.fname);
 //Output:
 // Aahi
+
 
 
 // 5. 4 Pillars of JavaScript ----------------------------------------------------
@@ -264,3 +301,22 @@ promise
 
 //Output:
 //Operation successful!
+
+
+//7. Difference between var, let and const
+
+//1. Scope (Where they exist)
+// var: Function-scoped. If declared outside a function, it is globally scoped.
+// let & const: Block-scoped. They only exist within the specific block (e.g., inside { } or an if statement) where they are declared.
+
+// 2. Reassignment (Changing values)
+// var & let: Can be updated or reassigned to different values.
+// const: Cannot be reassigned. Note: Properties of an object or elements in an array declared with const can still be mutated/changed, but the variable itself cannot point to a new value.
+ 
+//3. Redeclaration (Defining twice)
+// var: Allows you to redeclare the same variable in the same scope without throwing an error.
+// let & const: Will throw a Syntax Error if you try to redeclare them in the same scope.
+
+//4. Hoisting & Initialization
+// var: Variables are "hoisted" to the top of their scope and initialized with undefined, meaning you can call them before they are declared in your code.
+// let & const: Are hoisted but not initialized. Attempting to access them before their declaration results in a ReferenceError (this is called the Temporal Dead Zone).
