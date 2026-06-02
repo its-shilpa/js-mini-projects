@@ -107,6 +107,7 @@ console.log(person2.getName());
 
 // prototype → Property of a function that will be shared by objects created with new.
 // __proto__ → Property of an object that points to its parent prototype for inheritance.
+
 instance.__proto__ === Constructor.prototype
 
 // Example
