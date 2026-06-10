@@ -4,6 +4,7 @@
 - Number Guessing Game
 - Calculate Body Mass project 
 - Digital timer project
+- Added js notes
   rest coming soon 
 
 ## Live Demo
