@@ -5,7 +5,7 @@
 - Calculate Body Mass project 
 - Digital timer project
 - Added js notes
-  rest coming soonnnn
+Rest of the projects are coming soon
 
 ## Live Demo
 https://its-shilpa.github.io/js-mini-projects/
