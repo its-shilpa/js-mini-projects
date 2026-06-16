@@ -394,5 +394,6 @@ const arr = [10, 20, 30];
 const [a, b] = arr;
 console.log(a, b);
 
+
 //Output:
 //10 20
