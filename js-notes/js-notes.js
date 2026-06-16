@@ -321,3 +321,25 @@ promise
 //4. Hoisting & Initialization
 // var: Variables are "hoisted" to the top of their scope and initialized with undefined, meaning you can call them before they are declared in your code.
 // let & const: Are hoisted but not initialized. Attempting to access them before their declaration results in a ReferenceError (this is called the Temporal Dead Zone).
+
+
+//8. Closure
+//A function together with the variables from its outer scope that it "remembers", even after the outer function has finished executing.
+
+// Example
+function outer() {
+    let count = 0;
+
+    return function() {
+        return ++count;
+    };
+}
+
+const fn = outer();
+
+console.log(fn());
+console.log(fn());
+
+//Output: 
+1
+2
