@@ -343,3 +343,44 @@ console.log(fn());
 //Output: 
 1
 2
+
+
+//9. Equality Examples
+
+//Example 1:
+console.log(null == undefined);  //null and undefined are considered equal to each other when using ==
+//Other same type ex:
+null == 0          // false
+null == false      // false
+undefined == 0     // false
+undefined == false // false
+
+console.log(null === undefined);  //typeof null  -> "object"  (historical bug) and typeof undefined  -> "undefined" [Strict equality]
+
+//Output:
+//True
+//False
+
+//Example 2:
+console.log(Boolean(" ")); //This is a non-empty string. Even though it only contains whitespace, it still has a length of 1:
+console.log(Boolean(""));  //This string has no characters
+//Output:
+//True
+//False
+
+// Other Truthy Values:
+Boolean(" ");    // true
+Boolean("0");    // true
+Boolean([]);     // true
+Boolean({});     // true
+Boolean("false");// true
+
+// Other Falsy Values:
+Boolean(false);      // false
+Boolean(0);          // false
+Boolean(-0);         // false
+Boolean(0n);         // false
+Boolean("");         // false
+Boolean(null);       // false
+Boolean(undefined);  // false
+Boolean(NaN);        // false
