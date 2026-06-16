@@ -384,3 +384,15 @@ Boolean("");         // false
 Boolean(null);       // false
 Boolean(undefined);  // false
 Boolean(NaN);        // false
+
+
+// 10. Destructuring
+//Destructuring is a JavaScript syntax that lets you extract values from arrays or properties from objects and assign them to variables in a concise way.
+
+//Example:
+const arr = [10, 20, 30];
+const [a, b] = arr;
+console.log(a, b);
+
+//Output:
+//10 20
