@@ -456,3 +456,11 @@ console.log(user?.address?.country);
 // Non-existing nested object
 console.log(user?.company?.name);
 // Output: undefined
+
+//Without Optional Chaining
+console.log(user.company.name);
+//Output: TypeError: Cannot read properties of undefined
+
+//With Optional Chaining
+console.log(user?.company?.name);
+//Output: undefined
