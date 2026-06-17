@@ -409,3 +409,18 @@ console.log(second); // green
 const [first, ...rest] = colors;
 console.log(first); // red
 console.log(rest);  // ["green", "blue"]
+
+
+// 12. Default Values
+
+//Example:
+// For Arrays
+const [a, b = 100] = [10];
+console.log(a); // 10
+console.log(b); // 100 
+
+// For Objects:
+const { name, city = "Kolkata" } = {
+    name: "John"
+};
+console.log(city); // Kolkata
