@@ -419,7 +419,7 @@ const arr2 = [...arr1, 4, 5];
 console.log(arr2); // [1, 2, 3, 4, 5]
 
 
-// 12. Default Values
+// 13. Default Values
 
 //Example:
 // For Arrays
@@ -433,3 +433,26 @@ const { name, city = "Kolkata" } = {
     name: "Shilpa"
 };
 console.log(city); // Kolkata
+
+//14. Optional Chaining
+
+//Example:
+const user = {
+  name: "Shilpa",
+  address: {
+    city: "Kolkata",
+    zip: "700101",
+  },
+};
+
+// Existing property
+console.log(user?.address?.city);
+// Output: Kolkata
+
+// Non-existing property
+console.log(user?.address?.country);
+// Output: undefined
+
+// Non-existing nested object
+console.log(user?.company?.name);
+// Output: undefined
