@@ -401,14 +401,17 @@ console.log(a, b);
 // 11. Rest Operator
 
 //Example:
-const colors = ["red", "green", "blue"];
+const colors = ["red", "green", "blue", "yellow"];
 const [first, second] = colors;
 console.log(first);  // red
 console.log(second); // green
 
 const [first, ...rest] = colors;
 console.log(first); // red
-console.log(rest);  // ["green", "blue"]
+console.log(rest);  // ["green", "blue", "yellow"]
+
+
+//12. Spread Operator
 
 
 // 12. Default Values
