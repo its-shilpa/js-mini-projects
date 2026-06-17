@@ -394,6 +394,18 @@ const arr = [10, 20, 30];
 const [a, b] = arr;
 console.log(a, b);
 
-
 //Output:
 //10 20
+
+
+// 11. Rest Operator
+
+//Example:
+const colors = ["red", "green", "blue"];
+const [first, second] = colors;
+console.log(first);  // red
+console.log(second); // green
+
+const [first, ...rest] = colors;
+console.log(first); // red
+console.log(rest);  // ["green", "blue"]
