@@ -422,6 +422,6 @@ console.log(b); // 100
 
 // For Objects:
 const { name, city = "Kolkata" } = {
-    name: "John"
+    name: "Shilpa"
 };
 console.log(city); // Kolkata
