@@ -419,6 +419,7 @@ const [a, b = 100] = [10];
 console.log(a); // 10
 console.log(b); // 100 
 
+
 // For Objects:
 const { name, city = "Kolkata" } = {
     name: "John"
