@@ -1,4 +1,4 @@
-# JS Mini Projects
+# JS Mini Projects and Notes
 
 - Color Changer
 - Number Guessing Game
