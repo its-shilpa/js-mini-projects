@@ -434,6 +434,7 @@ const { name, city = "Kolkata" } = {
 };
 console.log(city); // Kolkata
 
+
 //14. Optional Chaining
 
 //Example:
@@ -444,6 +445,7 @@ const user = {
     zip: "700101",
   },
 };
+
 
 
 // Existing property
