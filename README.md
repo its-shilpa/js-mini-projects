@@ -1,6 +1,6 @@
 # JS Mini Projects and Notes
 
-- Color Changer multi colour 
+- Color Changer 
 - Number Guessing Game
 - Calculate Body Mass project 
 - Digital timer project
