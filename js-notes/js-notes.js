@@ -448,6 +448,8 @@ const user = {
 
 
 
+
+
 // Existing property
 console.log(user?.address?.city);
 // Output: Kolkata
